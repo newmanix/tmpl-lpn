@@ -1,0 +1,11 @@
+{% extends "base.html" %} 
+{% block content %} 
+<ul style="list-style:none">
+{% for movie in movies|sort(attribute="rating", reverse=true)|sort(attribute="title") %}
+  <li>
+    <b>{{ movie.title }}</b> is a {{ movie.genre }} movie and it's rating is {{ movie.rating }} {{movie.emoji}} {{movie.stars|safe}}
+  </li>
+{% endfor %}
+</ul>
+
+{% endblock %}
